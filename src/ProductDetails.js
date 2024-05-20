@@ -1,19 +1,13 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { fetchProductDetails } from './store/actions';
+import React from 'react';
 
-function ProductDetails({ productDetails, fetchProductDetails  }) {
-    useEffect(() => {
-        fetchProductDetails();
-    }, [fetchProductDetails]);
-
+function ProductDetails({ product }) {
   return (
-    <div className="productDetails-container">
-      <img src={productDetails.image} alt={productDetails.title} style={{ maxWidth: '100%', height: 'auto' }} />
-      <h1>{productDetails.title}</h1>
-      <h2>{productDetails.subtitle}</h2>
+    <div className="product-container">
+      <img src={product.image} alt={product.title} style={{ maxWidth: '100%', height: 'auto' }} />
+      <h1>{product.title}</h1>
+      <h2>{product.subtitle}</h2>
       <div className="tags">
-        {productDetails.tags.map(tag => (
+        {product.tags.map(tag => (
           <span key={tag} className="tag">{tag}</span>
         ))}
       </div>
@@ -21,12 +15,4 @@ function ProductDetails({ productDetails, fetchProductDetails  }) {
   );
 }
 
-const mapStateToProps = (state) => ({
-    productDetails: state.product.productDetails
-});
-
-const mapDispatchToProps = {
-    fetchProductDetails
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);
+export default ProductDetails;

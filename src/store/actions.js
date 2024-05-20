@@ -3,7 +3,7 @@ export const fetchProductDetails = () => {
         dispatch({ type: 'FETCH_PRODUCT_START' });
 
         // Simulate fetching data
-        fetch('/data/productData.json')
+        fetch('/mock_data/small_data.json')
             .then(res => res.json())
             .then(data => {
                 dispatch({ type: 'FETCH_PRODUCT_SUCCESS', payload: { product: data.product, sales: data.sales } });
