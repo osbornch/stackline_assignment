@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import ProductDetails from './ProductDetails';
 import SalesGraph from './SalesGraph';
 import SalesDataTable from './SalesDataTable';
@@ -10,11 +11,12 @@ function App() {
       <div className="product-details">
         <ProductDetails product={productData[0]} />
       </div>
-      <div className="sales-data">
+      <div className="sales-info">
         <SalesGraph salesData={productData[0].sales} />
         <SalesDataTable salesData={productData[0].sales} />
       </div>
     </div>
   );
 }
+
 export default App;
